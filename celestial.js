@@ -5168,7 +5168,10 @@
             groups.planetNames.selectAll(".moonname")
              .data(jlun.features)
              .enter().append("text")
-             .attr("transform", function(d) { return point(d.geometry.coordinates); })
+             .attr("transform", function(d) { 
+               const [x,y] = projection(d.geometry.coordinates);
+               return `translate(${x},${(y+(d.properties.radius??10))-3})`;
+             })
              .text( function(d) { return d.properties.name; })
              .attr({dy: ".85em", dx: "-.35em"})
              .attr("class", function(d) { return "planetNames " + d.id; });
