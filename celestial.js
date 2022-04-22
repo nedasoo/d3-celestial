@@ -5157,7 +5157,7 @@
                 break;
               }
             }
-            usedSpace.push({x,y,textWidth,textHeight,name:d.properties.name});
+            usedSpace.push({x,y,textWidth:textWidth+5,textHeight:textHeight+5,name:d.properties.name});
             //console.log(d.properties.name,x,dx,y,dy);
             return `translate(${x+dx},${y+dy})`;
            })
